@@ -1,0 +1,91 @@
+In Java, a **generic class** is a class that can operate on objects of various types while providing compile-time type safety. Generics enable types (classes and interfaces) to be parameters when defining classes, interfaces, and methods, allowing for flexible code without the need for casting or specifying types explicitly at each use.
+
+### Defining a Generic Class
+
+To define a generic class, you specify a type parameter in angle brackets `<>` after the class name. By convention, single letters like `T`, `E`, `K`, `V` are often used for type parameters, where:
+- `T` represents "Type"
+- `E` represents "Element"
+- `K` and `V` represent "Key" and "Value" for maps
+
+Here’s a basic example of a generic class:
+
+```java
+public class Box<T> {
+    private T value;
+
+    public Box(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+}
+```
+
+In this `Box<T>` class:
+- `T` is a type parameter that will be specified when creating an instance of `Box`.
+- `T` can be replaced by any reference type when the class is instantiated.
+
+### Using a Generic Class
+
+When you use this `Box` class, you specify the actual type in place of `T`:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Creating a Box for Integer type
+        Box<Integer> integerBox = new Box<>(123);
+        System.out.println(integerBox.getValue());  // Output: 123
+
+        // Creating a Box for String type
+        Box<String> stringBox = new Box<>("Hello");
+        System.out.println(stringBox.getValue());  // Output: Hello
+    }
+}
+```
+
+### Advantages of Generic Classes
+
+1. **Type Safety**: Generics enforce type safety at compile time, reducing runtime errors.
+2. **Code Reusability**: Generic classes and methods can work with any type, enhancing reusability.
+3. **Elimination of Casting**: When retrieving values from generic types, casting is not necessary, simplifying code.
+
+### Example: Generic Pair Class
+
+Here's an example of a `Pair` class that holds two related values of any type:
+
+```java
+public class Pair<K, V> {
+    private K key;
+    private V value;
+
+    public Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public K getKey() {
+        return key;
+    }
+
+    public V getValue() {
+        return value;
+    }
+}
+```
+
+Using the `Pair` class:
+
+```java
+Pair<String, Integer> pair = new Pair<>("Age", 30);
+System.out.println(pair.getKey());    // Output: Age
+System.out.println(pair.getValue());  // Output: 30
+```
+
+### Summary
+Generic classes allow you to create classes that are flexible and type-safe, enabling you to work with various types while enforcing the correct type usage at compile time.

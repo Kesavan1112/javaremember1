@@ -1,0 +1,23 @@
+EIn Java, `class` and `Class` are distinct concepts, and they serve different purposes:
+
+1. **`class` (lowercase)**:
+   - `class` is a **keyword** in Java, used to define a new class.
+   - It is part of the syntax to declare a class structure. For example:
+     ```java
+     public class MyClass {
+         // class contents here
+     }
+     ```
+
+2. **`Class` (uppercase)**:
+   - `Class` is a **class** in the `java.lang` package. It represents the **meta-class** of objects, allowing runtime reflection.
+   - Using `Class`, you can get information about a class, such as its name, methods, fields, etc.
+   - An example use:
+     ```java
+     Class<?> clazz = MyClass.class; // Gets the Class object for MyClass
+     System.out.println(clazz.getName()); // Prints "MyClass"
+     ```
+
+In summary:
+- `class` is a Java keyword to define classes.
+- `Class` is an actual Java class used for reflection to inspect and manipulate classes at runtime.

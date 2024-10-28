@@ -1,0 +1,3 @@
+weird in java
+1.genericclass
+2.classandClass

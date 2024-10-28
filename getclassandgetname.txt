@@ -1,0 +1,86 @@
+/*In Java, `getClass()` and `getName()` are methods commonly used to obtain information about an object's class:
+
+1. **`getClass()`**: This method is inherited from the `Object` class. It returns the runtime class of the object as a `Class<?>` object.
+   - **Syntax**: `obj.getClass();`
+   - **Example**:
+     ```java
+     String text = "Hello";
+     Class<?> cls = text.getClass();
+     System.out.println(cls);  // Output: class java.lang.String
+     ```
+
+2. **`getName()`**: This method is part of the `Class` class. When called on a `Class` object, it returns the fully qualified name of the class (including the package name).
+   - **Syntax**: `obj.getClass().getName();`
+   - **Example**:
+     ```java
+     String text = "Hello";
+     String className = text.getClass().getName();
+     System.out.println(className);  // Output: java.lang.String
+     ```
+
+### Usage
+These methods are helpful for reflection, debugging, and logging, as they allow you to retrieve details about the class of an object at runtime. */
+
+
+/*In Java, `getName()` is **not exclusive to the `File` class**, but it is commonly used in the `File` class to get the name of a file or directory represented by a `File` object. The `getName()` method is also present in other classes, such as `Class`, where it serves a different purpose.
+
+### `getName()` in the `File` class
+The `getName()` method in the `File` class returns the name of the file or directory represented by the `File` object.
+
+- **Syntax**: `file.getName();`
+- **Example**:
+  ```java
+  import java.io.File;
+
+  public class Main {
+      public static void main(String[] args) {
+          File file = new File("/path/to/file.txt");
+          System.out.println(file.getName());  // Output: file.txt
+      }
+  }
+  ```
+
+### `getName()` in the `Class` class
+In the `Class` class, `getName()` returns the fully qualified name of the class (including the package).
+
+- **Syntax**: `obj.getClass().getName();`
+- **Example**:
+  ```java
+  public class Main {
+      public static void main(String[] args) {
+          String text = "Hello";
+          System.out.println(text.getClass().getName());  // Output: java.lang.String
+      }
+  }
+  ```
+
+### Summary
+- **`File.getName()`**: Returns the name of the file or directory.
+- **`Class.getName()`**: Returns the fully qualified class name of an object. 
+
+Both are valid methods with different functionalities based on the class they belong to.*/
+
+
+/*Actually, `getClass()` is not specific to the `Writer` class in Java. It is a method of the `Object` class, which means that it is available to every Java object by default, since all classes in Java inherit from `Object`.
+
+Here's how `getClass()` works:
+
+- **Defined in**: `java.lang.Object`
+- **Usage**: When called on any object, `getClass()` returns a `Class<?>` object representing the runtime class of the object.
+
+For example, you can use `getClass()` with any class, including `Writer` (or subclasses like `FileWriter` or `BufferedWriter`):
+
+```java
+import java.io.Writer;
+import java.io.StringWriter;
+
+public class Main {
+    public static void main(String[] args) {
+        Writer writer = new StringWriter();
+        System.out.println(writer.getClass());         // Output: class java.io.StringWriter
+        System.out.println(writer.getClass().getName()); // Output: java.io.StringWriter
+    }
+}
+```
+
+Since all classes inherit from `Object`, this method is widely applicable, not limited to specific classes like `Writer`. */
